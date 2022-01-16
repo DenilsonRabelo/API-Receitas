@@ -1,17 +1,18 @@
 {
-  "name": "api",
+  "name": "api-de-receitas",
   "version": "1.0.0",
-  "description": "",
+  "description": "Uma api que retorna comidas",
   "main": "index.js",
   "scripts": {
-    "start" : "node server.js"
+    "start": "node server.js"
   },
-  "keywords": [],
+  "keywords": ["api","express","nodejs","mongoose"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^12.0.4",
     "express": "^4.17.2",
-    "mongoose": "^6.1.4"
+    "mongoose": "^6.1.6"
   }
 }
