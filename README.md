@@ -6,15 +6,23 @@
 
 ## 📦 Como instalar
 ```bash
-npm i api-de-receitas
+npm i receitas-api
 ```
 ## :rocket: Como Usar
 ```bash
 const receitas = require("api-de-receitas")
 
-receitas.then(data => {
-    console.log(data)
+
+receitas("doce")
+.then(data => console.log(data))
 })
+```
+##Diferentes rotas
+```bash
+"todos" - retorna todas as receitas
+"doce" - retorna apenas as receitas doces
+"salgado"  - retorna apenas as receitas salgadas
+"agridoce"  - retorna apenas as receitas agridoces
 ```
 ## :dart: Exemplo de resposta
 ```bash
@@ -37,8 +45,7 @@ receitas.then(data => {
 #
 
 ### :memo: Licença
-
-Apache MIT
+MIT license
 
 [See more about the license][license]
 
