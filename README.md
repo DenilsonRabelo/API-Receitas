@@ -10,14 +10,13 @@ npm i receitas-api
 ```
 ## :rocket: Como Usar
 ```bash
-const receitas = require("api-de-receitas")
-
+const receitas = require("receitas-api")
 
 receitas("doce")
 .then(data => console.log(data))
 })
 ```
-##Diferentes rotas
+## :paw_prints: Diferentes rotas
 ```bash
 "todos" - retorna todas as receitas
 "doce" - retorna apenas as receitas doces
