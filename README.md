@@ -1,4 +1,12 @@
-<h1 align="center"> API-Receitas </h1> 
+<h1 align="center"> API-Receitas </h1>
+<p align="center">
+<img src="https://img.shields.io/github/issues/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/forks/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/stars/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/license/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FDeni_dev1"/>
+</p>
+
 <p align="center">Essa é uma API que retorna receitas para o usuário onde os dados estão hospedados no mongodb e também no Heroku onde está o deploy da aplicação.</p>
 <h1 align="center">
   <img height="500" alt="comida" title="comida" src="https://media.tenor.com/images/3e4d211cd661a2d7125a6fa12d6cecc6/tenor.gif"/>
