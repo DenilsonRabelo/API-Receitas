@@ -26,7 +26,7 @@ receitas("doce")
 ```
 ## :paw_prints: Diferentes rotas
 ```bash
-"todos" - retorna todas as receitas
+"todas" - retorna todas as receitas
 "doce" - retorna apenas as receitas doces
 "salgado"  - retorna apenas as receitas salgadas
 "agridoce"  - retorna apenas as receitas agridoces
