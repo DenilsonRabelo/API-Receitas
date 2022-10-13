@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken")
 const config = require("../config/JWTauth")
 
 async function login (req, res) {
-    const {email, password} = req.body
+    const {email, senha} = req.body
 
     const usuario = await User.findOne({email})
 
@@ -12,7 +12,7 @@ async function login (req, res) {
             error: true,
             message: "Nenhum usuário encontrado"
         })
-    }else if (!usuario.password === password){
+    }else if (!usuario.senha === senha){
         return res.status(400).json({
             error: true,
             msg: "Nenhum usuário encontrado"
