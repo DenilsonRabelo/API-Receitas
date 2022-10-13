@@ -1,9 +1,11 @@
 const receitaController = require("../controller/receitaController")
+const authMiddleware = require("../Middleware/authMiddleware")
+
 
 const express = require("express")
 const router = express.Router()
 
-//ok
+
 router.get('/', (req, res) => {
     return receitaController.getReceitas(req,res)
 })
@@ -17,7 +19,7 @@ router.get('/tipo/:tipo', (req, res) => {
 })
 
 
-router.post('/', (req, res) => {
+router.post('/', authMiddleware ,(req, res) => {
     return receitaController.createReceita(req, res)
 })
 

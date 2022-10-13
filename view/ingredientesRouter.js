@@ -1,10 +1,11 @@
 const ingredientesController = require("../controller/ingredientesController")
+const authMiddleware = require("../Middleware/authMiddleware")
 
 const express = require("express")
 const router = express.Router()
 
 
-router.post('/ingredientesbase/:receita_id',(req, res) => {
+router.post('/ingredientesbase/:receita_id', authMiddleware, (req, res) => {
     return ingredientesController.createIngredientesBase(req, res)
 })
 
