@@ -8,7 +8,7 @@ import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 export class usuarioController {
     constructor (private usuarioService : usuarioService){}
 
-    
+    @UseGuards(JwtAuthGuard)
     @Post()
     criarUsuarioADM(@Body() user : CreateUserDto){
         return this.usuarioService.create(user)
