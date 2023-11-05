@@ -7,6 +7,7 @@ export class receitaService {
     constructor(private prisma: PrismaService) { }
 
     getReceitasTipo(tipo) {
+        console.log(tipo)
         if (tipo == 'doce' || tipo == 'salgado' || tipo == 'agridoce') {
             try {
                 const receitas = this.prisma.receita.findMany({
@@ -26,10 +27,10 @@ export class receitaService {
         }
     }
 
-    getRceitaId(id) {
+    getRceitaId(id: string) {
         try {
             const receita = this.prisma.receita.findUnique({
-                where: { id: id },
+                where: { id: parseInt(id) },
                 include: { IngredientesBase: true }
             })
             return receita
@@ -46,6 +47,27 @@ export class receitaService {
                 }
             });
             return receitas
+        } catch (error) {
+            return { menssage: error }
+        }
+    }
+
+
+    getReceitasIngredientes() {
+        try {
+            const ingredientesBase = this.prisma.ingredientesBase.findMany()
+            return ingredientesBase
+        } catch (error) {
+            return { menssage: error }
+        }
+    }
+
+    getIngredientesBasePorID(id) {
+        try {
+            const ingredientesBase = this.prisma.ingredientesBase.findUnique({
+                where: { id: parseInt(id) }
+            })
+            return ingredientesBase
         } catch (error) {
             return { menssage: error }
         }
@@ -73,6 +95,17 @@ export class receitaService {
 
             })
             return { menssage: "receita criada" }
+        } catch (error) {
+            return { menssage: error }
+        }
+    }
+
+    async deleteReceita(id) {
+        try {
+            await this.prisma.receita.delete({
+                where: { id: parseInt(id) }
+            })
+            return { menssage: "receita deletada" }
         } catch (error) {
             return { menssage: error }
         }

@@ -28,7 +28,7 @@ model Receita {
 model IngredientesBase {
   id              Int      @id @default(autoincrement())
   nomesIngrediente  Json[]
-  receita         Receita? @relation(fields: [receita_id], references: [id])
+  receita         Receita? @relation(fields: [receita_id], references: [id], onDelete: Cascade)
   receita_id      Int?
   created_at      DateTime @default(now())
 

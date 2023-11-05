@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from "@nestjs/common";
 import { receitaService } from './receita.service';
 import { ReceitasDto } from './dto/create-receita.dto'
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
@@ -17,8 +17,18 @@ export class receitaController {
         return this.receitaService.getReceitasTipo(tipo)
     }
 
+    @Get('ingredientes')
+    FindIngredientes(){
+        return this.receitaService.getReceitasIngredientes()
+    }
+
+    @Get('ingredientes/:id')
+    FindIngredientesId(@Param('id') id : string){
+        return this.receitaService.getIngredientesBasePorID(id)
+    }
+
     @Get(':id')
-    FindReceitaID(@Param('id') id : String){
+    FindReceitaID(@Param('id') id : string){
         return this.receitaService.getRceitaId(id)
     }
 
@@ -26,6 +36,11 @@ export class receitaController {
     @Post()
     async CreateReceita(@Body() data : ReceitasDto){
         return this.receitaService.postRceita(data);
+    }
+    @UseGuards(JwtAuthGuard)
+    @Delete(':id')
+    async DeleteReceita(@Param('id') id : number){
+        return this.receitaService.deleteReceita(id);
     }
 
 }
