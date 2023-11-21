@@ -35,4 +35,4 @@ CREATE TABLE "usuario" (
 CREATE UNIQUE INDEX "usuario_email_key" ON "usuario"("email");
 
 -- AddForeignKey
-ALTER TABLE "ingredientesbase" ADD CONSTRAINT "ingredientesbase_receita_id_fkey" FOREIGN KEY ("receita_id") REFERENCES "receita"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "ingredientesbase" ADD CONSTRAINT "ingredientesbase_receita_id_fkey" FOREIGN KEY ("receita_id") REFERENCES "receita"("id") ON DELETE CASCADE ON UPDATE CASCADE;

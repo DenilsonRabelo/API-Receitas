@@ -34,7 +34,7 @@ export class receitaController {
 
     @UseGuards(JwtAuthGuard)
     @Post()
-    async CreateReceita(@Body() data : ReceitasDto){
+    async CreateReceita(@Body() data : [ReceitasDto]){
         return this.receitaService.postRceita(data);
     }
     @UseGuards(JwtAuthGuard)

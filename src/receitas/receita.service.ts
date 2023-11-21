@@ -74,30 +74,32 @@ export class receitaService {
     }
 
     async postRceita(receitas) {
-        const { IngredientesBase, receita, ingredientes, modo_preparo, link_imagem, tipo } = receitas
+        receitas.forEach(element => {
+            const { IngredientesBase, receita, ingredientes, modo_preparo, link_imagem, tipo } = element
+            
+            if (!(tipo === "doce" || tipo === "salgado" || tipo === "agridoce")) {
+                return { menssage: `${tipo} deve ser doce, salgado ou agridoce` }
+            }
 
-        if (!(tipo == 'doce' || tipo == 'salgado' || tipo == 'agridoce')) {
-            return { menssage: `${tipo} deve ser doce, salgado ou agridoce` }
-        }
-
-        try {
-            await this.prisma.receita.create({
-                data: {
-                    receita,
-                    ingredientes,
-                    modo_preparo,
-                    link_imagem,
-                    tipo,
-                    IngredientesBase: {
-                        create: IngredientesBase
+            try {
+                this.prisma.receita.create({
+                    data: {
+                        receita,
+                        ingredientes,
+                        modo_preparo,
+                        link_imagem,
+                        tipo,
+                        IngredientesBase: {
+                            create: IngredientesBase
+                        }
                     }
-                }
 
-            })
-            return { menssage: "receita criada" }
-        } catch (error) {
-            return { menssage: error }
-        }
+                })
+            } catch (error) {
+                return { menssage: error }
+            }
+        });
+        return { menssage: "receitas criadas" }
     }
 
     async deleteReceita(id) {
