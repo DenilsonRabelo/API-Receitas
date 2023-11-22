@@ -74,7 +74,7 @@ export class receitaService {
     }
 
     async postRceita(receitas) {
-        receitas.forEach(element => {
+        receitas.forEach(async element => {
             const { IngredientesBase, receita, ingredientes, modo_preparo, link_imagem, tipo } = element
             
             if (!(tipo === "doce" || tipo === "salgado" || tipo === "agridoce")) {
@@ -82,7 +82,7 @@ export class receitaService {
             }
 
             try {
-                this.prisma.receita.create({
+                await this.prisma.receita.create({
                     data: {
                         receita,
                         ingredientes,
