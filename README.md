@@ -1,73 +1,79 @@
+<h1 align="center"> API-Receitas </h1>
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+<img src="https://img.shields.io/github/issues/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/forks/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/stars/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/license/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FDeni_dev1"/>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<p align="center">Essa é uma API que retorna receitas para o usuário onde os dados estão hospedados no Heroku onde está o deploy da aplicação.</p>
+<h1 align="center">
+  <img height="500" alt="comida" title="comida" src="https://media.tenor.com/images/3e4d211cd661a2d7125a6fa12d6cecc6/tenor.gif"/>
+</h1>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
+## 📦 URL BASE
 ```bash
-$ npm install
+https://api-receitas9.herokuapp.com/receitas
+```
+## :rocket: Como Usar
+```bash
+fetch("https://api-receitas9.herokuapp.com/receitas/")
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+```
+## :paw_prints: Diferentes rotas
+```bash
+"/ingredientes/:receita_id" - retorna a receita por id.
+"/ingredientesbase" - retorna todos os ingredientes base.
+"https://api-receitas9.herokuapp.com/receitas/"  - retorna todas as receitas e ingredientes base.
+"/tipo/:tipo"  - retorna as receitas por tipo.
 ```
 
-## Running the app
-
+## :paw_prints: Tipos de receitas
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+"doce" - retorna apenas as receitas doces
+"salgado"  - retorna apenas as receitas salgadas
+"agridoce"  - retorna apenas as receitas agridoces
 ```
-
-## Test
-
+## :dart: Exemplo de resposta
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+  {
+    id: 1,
+    receita: 'Smoothie',
+    ingredientes: 'abacate, amora, leite de coco',
+    ingredientesBase: {
+        id : "2",
+        nomeingrediente : "leite"
+        receita_id : 1,
+        created_at: "18-09-2022",
+        updated_at: "18-09-2022",
+    },
+    modoPreparo: 'Coloque suas frutas congeladas de preferência no liquidificador. Adiciona um pouco de liquido e bate. Começa com pouco a adicione mais se for necessário. Para       não precisar adicionar muito liquido e perder a textura de sorvete, para de bater frequentemente e mistura com uma colher de pao para ajudar antes de voltar bater de novo.Experimenta e adicione adoçante se achar necessário. Serve já já! Se sobrar você pode colocar a mistura em moldes para picolé e guardar para um outro dia com calor',
+    link_imagem: 'http://www.dicasdemulher.com.br/wp-content/uploads/2014/05/10-smoothies-mais-saudaveis-de-todos-os-tempos.jpg'
+    tipo : "doce"
+    created_at: "18-09-2022",
+    updated_at: "18-09-2022",
+  }
 ```
+#
+## :computer: Tecnologias usadas no projeto
+- [PostegresSQL](https://www.postgresql.org)
+- [Sequelize](https://sequelize.org)
+- [Node.js](https://nodejs.org/en/)
+- [Express.js](https://expressjs.com/pt-br/)
+- [Javascript](https://www.typescriptlang.org/)
 
-## Support
+#
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### :memo: Licença
+MIT license
 
-## Stay in touch
+[See more about the license][license]
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+[license]: https://github.com/DenilsonRabelo/API-Receitas/blob/main/LICENSE
+#
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+## 🚀 Autor
+| [<img height="100" src="https://avatars.githubusercontent.com/u/80592413?v=4"><br><sub>@denilson.dev</sub>](https://github.com/DenilsonRabelo) |
+|--|
