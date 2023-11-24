@@ -7,7 +7,6 @@ export class receitaService {
     constructor(private prisma: PrismaService) { }
 
     getReceitasTipo(tipo) {
-        console.log(tipo)
         if (tipo == 'doce' || tipo == 'salgado' || tipo == 'agridoce') {
             try {
                 const receitas = this.prisma.receita.findMany({
