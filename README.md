@@ -7,27 +7,28 @@
 <img src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FDeni_dev1"/>
 </p>
 
-<p align="center">Essa é uma API que retorna receitas para o usuário onde os dados estão hospedados no Heroku onde está o deploy da aplicação.</p>
+<p align="center">Esta é uma API que fornece receitas aos usuários, com os dados armazenados no Cyclic, onde a aplicação está implantada.</p>
 <h1 align="center">
   <img height="500" alt="comida" title="comida" src="https://media.tenor.com/images/3e4d211cd661a2d7125a6fa12d6cecc6/tenor.gif"/>
 </h1>
 
 ## 📦 URL BASE
 ```bash
-https://api-receitas9.herokuapp.com/receitas
+https://gold-anemone-wig.cyclic.app/receitas
 ```
 ## :rocket: Como Usar
 ```bash
-fetch("https://api-receitas9.herokuapp.com/receitas/")
+fetch("https://gold-anemone-wig.cyclic.app/receitas/todas")
     .then((response) => response.json())
     .then((data) => console.log(data))
 ```
 ## :paw_prints: Diferentes rotas
 ```bash
-"/ingredientes/:receita_id" - retorna a receita por id.
-"/ingredientesbase" - retorna todos os ingredientes base.
-"https://api-receitas9.herokuapp.com/receitas/"  - retorna todas as receitas e ingredientes base.
+"/todas" - retorna todos as receitas.
+"/:id" - retorna a receita por id.
 "/tipo/:tipo"  - retorna as receitas por tipo.
+"/ingredientes" - retorna todos os ingredientes.
+"/ingredientes/:id" - retorna um ingrediente por id.
 ```
 
 ## :paw_prints: Tipos de receitas
@@ -39,30 +40,34 @@ fetch("https://api-receitas9.herokuapp.com/receitas/")
 ## :dart: Exemplo de resposta
 ```bash
   {
-    id: 1,
-    receita: 'Smoothie',
-    ingredientes: 'abacate, amora, leite de coco',
-    ingredientesBase: {
-        id : "2",
-        nomeingrediente : "leite"
-        receita_id : 1,
-        created_at: "18-09-2022",
-        updated_at: "18-09-2022",
-    },
-    modoPreparo: 'Coloque suas frutas congeladas de preferência no liquidificador. Adiciona um pouco de liquido e bate. Começa com pouco a adicione mais se for necessário. Para       não precisar adicionar muito liquido e perder a textura de sorvete, para de bater frequentemente e mistura com uma colher de pao para ajudar antes de voltar bater de novo.Experimenta e adicione adoçante se achar necessário. Serve já já! Se sobrar você pode colocar a mistura em moldes para picolé e guardar para um outro dia com calor',
-    link_imagem: 'http://www.dicasdemulher.com.br/wp-content/uploads/2014/05/10-smoothies-mais-saudaveis-de-todos-os-tempos.jpg'
-    tipo : "doce"
-    created_at: "18-09-2022",
-    updated_at: "18-09-2022",
+    "id": 1,
+    "receita": "Bolo de Cenoura",
+    "ingredientes": "3 cenouras médias, 3 ovos, 1 xícara de óleo, 2 xícaras de farinha de trigo, 2 xícaras de açúcar, 1 colher de sopa de fermento em pó",
+    "modo_preparo": "1. Descasque e corte as cenouras em pedaços. 2. No liquidificador, bata as cenouras, os ovos e o óleo até obter uma mistura homogênea. 3. Em uma tigela, adicione a farinha de trigo, o açúcar e o fermento. Misture bem. 4. Acrescente a mistura líquida do liquidificador à tigela e mexa até incorporar todos os ingredientes. 5. Despeje a massa em uma forma untada e leve ao forno preaquecido a 180°C por aproximadamente 40 minutos ou até dourar. 6. Retire do forno, deixe esfriar e desenforme.",
+    "link_imagem": "https://imagens-revista.vivadecora.com.br/uploads/2020/06/Bolo-de-cenoura-com-cobertura-Foto-Noticias-ao-Minuto.jpg",
+    "tipo": "doce",
+    "created_at": "2023-11-22T16:19:48.033Z",
+    "IngredientesBase": [
+      {
+        "id": 1,
+        "nomesIngrediente": [
+          "cenoura",
+          "ovos"
+        ],
+        "receita_id": 1,
+        "created_at": "2023-11-22T16:19:48.033Z"
+      }
+    ]
   }
 ```
 #
 ## :computer: Tecnologias usadas no projeto
 - [PostegresSQL](https://www.postgresql.org)
-- [Sequelize](https://sequelize.org)
+- [Prisma](https://www.prisma.io)
+- [Nest](https://nestjs.com)
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/pt-br/)
-- [Javascript](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 #
 
