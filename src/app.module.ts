@@ -10,7 +10,7 @@ import { APP_GUARD } from '@nestjs/core';
 @Module({
   imports: [receitaModule, AuthModule, usuarioModule, ThrottlerModule.forRoot({
     ttl : 60,
-    limit : 10
+    limit : 100
   })],
   controllers: [AppController],
   providers: [PrismaService, 
