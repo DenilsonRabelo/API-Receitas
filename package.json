@@ -24,16 +24,14 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/jwt": "^10.0.3",
     "@nestjs/passport": "^9.0.3",
-    "@nestjs/platform-express": "^9.0.0",
     "@nestjs/throttler": "^4.0.0",
     "@prisma/client": "^4.11.0",
     "bcrypt": "^5.1.0",
     "class-validator": "^0.14.0",
     "googleapis": "^129.0.0",
+    "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
-    "passport-local": "^1.0.0",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
