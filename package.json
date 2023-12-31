@@ -1,7 +1,7 @@
 {
   "name": "receitas_api",
   "version": "0.0.1",
-  "description": "<h1 align=\"center\"> API-Receitas </h1>\r <p align=\"center\">\r <img src=\"https://img.shields.io/github/issues/DenilsonRabelo/API-Receitas\"/>\r <img src=\"https://img.shields.io/github/forks/DenilsonRabelo/API-Receitas\"/>\r <img src=\"https://img.shields.io/github/stars/DenilsonRabelo/API-Receitas\"/>\r <img src=\"https://img.shields.io/github/license/DenilsonRabelo/API-Receitas\"/>\r <img src=\"https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FDeni_dev1\"/>\r </p>",
+  "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -22,13 +22,14 @@
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
-    "@nestjs/jwt": "^9.0.0",
+    "@nestjs/jwt": "^10.0.3",
     "@nestjs/passport": "^9.0.3",
-    "@nestjs/throttler": "^3.1.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/throttler": "^4.0.0",
     "@prisma/client": "^4.11.0",
     "bcrypt": "^5.1.0",
     "class-validator": "^0.14.0",
-    "googleapis": "^38.0.0",
+    "googleapis": "^37.0.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0"
@@ -47,6 +48,21 @@
     "tsconfig-paths": "4.1.1",
     "typescript": "^4.7.4"
   },
-  "main": ".eslintrc.js",
-  "keywords": []
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
 }
