@@ -14,11 +14,11 @@
 
 ## 📦 URL BASE
 ```bash
-https://api-receitas-ten.vercel.app/receitas
+https://api-receitas-pi.vercel.app
 ```
 ## :rocket: Como Usar
 ```bash
-fetch("https://api-receitas-ten.vercel.app/receitas/todas")
+fetch("https://api-receitas-pi.vercel.app/todas")
     .then((response) => response.json())
     .then((data) => console.log(data))
 ```
