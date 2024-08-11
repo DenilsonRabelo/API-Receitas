@@ -76,7 +76,6 @@ export class receitaService {
   async postRceita(receitas) {
     const { IngredientesBase, receita, ingredientes, modo_preparo, tipo } = receitas
 
-    console.log(tipo)
     if (!(tipo == 'doce' || tipo == 'salgado' || tipo == 'agridoce')) {
       return { menssage: `${tipo} deve ser doce, salgado ou agridoce` }
     }
