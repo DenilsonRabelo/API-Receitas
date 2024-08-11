@@ -18,7 +18,7 @@ https://api-receitas-pi.vercel.app
 ```
 ## :rocket: Como Usar
 ```bash
-fetch("https://api-receitas-pi.vercel.app/todas")
+fetch("https://api-receitas-pi.vercel.app/receitas/todas")
     .then((response) => response.json())
     .then((data) => console.log(data))
 ```
