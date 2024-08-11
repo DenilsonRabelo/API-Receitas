@@ -7,18 +7,18 @@
 <img src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FDeni_dev1"/>
 </p>
 
-<p align="center">Esta é uma API que fornece receitas aos usuários, com os dados armazenados no Cyclic, onde a aplicação está implantada.</p>
+<p align="center">Esta é uma API que fornece receitas aos usuários, com os dados armazenados no Vercel, onde a aplicação está implantada.</p>
 <h1 align="center">
   <img height="500" alt="comida" title="comida" src="https://media.tenor.com/images/3e4d211cd661a2d7125a6fa12d6cecc6/tenor.gif"/>
 </h1>
 
 ## 📦 URL BASE
 ```bash
-https://gold-anemone-wig.cyclic.app/receitas
+https://api-receitas-ten.vercel.app/receitas
 ```
 ## :rocket: Como Usar
 ```bash
-fetch("https://gold-anemone-wig.cyclic.app/receitas/todas")
+fetch("https://api-receitas-ten.vercel.app/receitas/todas")
     .then((response) => response.json())
     .then((data) => console.log(data))
 ```
