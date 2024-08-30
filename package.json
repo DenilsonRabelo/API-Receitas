@@ -36,7 +36,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "@nestjs/cli": "^9.0.0",
+    "@nestjs/cli": "^10.4.5",
     "@nestjs/schematics": "^9.0.0",
     "@types/bcrypt": "^5.0.0",
     "@types/node": "18.11.18",
