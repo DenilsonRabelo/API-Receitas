@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: receitas
+      POSTGRES_PASSWORD: receitas123
+      POSTGRES_DB: receitas
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

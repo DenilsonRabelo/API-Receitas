@@ -1,47 +1,60 @@
-import { Body, Controller, Delete, Get, Param, Post, UseGuards } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { receitaService } from './receita.service';
-import { ReceitasDto } from './dto/create-receita.dto'
-import { JwtAuthGuard } from "../auth/guards/jwt-auth.guard";
+import { ReceitasDto } from './dto/create-receita.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { Pagination } from 'nestjs-typeorm-paginate';
 
-@Controller("receitas")
+@Controller('receitas')
 export class receitaController {
-    constructor(private receitaService : receitaService){}
+  constructor(private receitaService: receitaService) {}
 
-    @Get("todas")
-    async FindReceitas() {
-        return this.receitaService.getAll();
+  @Get('todas')
+  async FindReceitas(
+    @Query('page') page: number,
+    @Query('limit') limit: number,
+  ): Promise<Pagination<ReceitasDto>> {
+    limit = limit > 100 ? 100 : limit;
+    page = page < 1 ? 1 : page;
+    if (!page || !limit) {
+      page = 1;
+      limit = 10;
     }
+    return this.receitaService.getAll({ page, limit });
+  }
 
-    @Get('tipo/:tipo')
-    FindreceitaPorTipo(@Param('tipo') tipo : String){
-        return this.receitaService.getReceitasTipo(tipo)
-    }
+  @Get('tipo/:tipo')
+  FindreceitaPorTipo(@Param('tipo') tipo: string) {
+    return this.receitaService.getReceitasTipo(tipo);
+  }
 
-    @Get('ingredientes')
-    FindIngredientes(){
-        return this.receitaService.getReceitasIngredientes()
-    }
+  @Get('ingredientes/:id')
+  FindIngredientesId(@Param('id') id: string) {
+    return this.receitaService.getIngredientesBasePorID(id);
+  }
 
-    @Get('ingredientes/:id')
-    FindIngredientesId(@Param('id') id : string){
-        return this.receitaService.getIngredientesBasePorID(id)
-    }
+  @Get(':id')
+  FindReceitaID(@Param('id') id: string) {
+    return this.receitaService.getReceitaId(id);
+  }
 
-    @Get(':id')
-    FindReceitaID(@Param('id') id : string){
-        return this.receitaService.getRceitaId(id)
-    }
+  @UseGuards(JwtAuthGuard)
+  @Post()
+  async CreateReceita(@Body() data: ReceitasDto) {
+    return this.receitaService.postReceita(data);
+  }
 
-    @UseGuards(JwtAuthGuard)
-    @Post()
-    async CreateReceita(@Body() data : ReceitasDto){
-        return this.receitaService.postRceita(data);
-    }
-
-    @UseGuards(JwtAuthGuard)
-    @Delete(':id')
-    async DeleteReceita(@Param('id') id : number){
-        return this.receitaService.deleteReceita(id);
-    }
-
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  async DeleteReceita(@Param('id') id: number) {
+    return this.receitaService.deleteReceita(id);
+  }
 }

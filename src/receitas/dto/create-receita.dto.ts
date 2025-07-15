@@ -1,8 +1,8 @@
-export class ReceitasDto{
-    receita  :        String;
-    ingredientes : string;
-    modo_preparo :    String;
-    link_imagem   :   String;
-    tipo          :   String;
-    IngredientesBase : {};
+export class ReceitasDto {
+  receita: string;
+  ingredientes: string;
+  modo_preparo: string;
+  link_imagem: string;
+  tipo: string;
+  IngredientesBase: object;
 }
