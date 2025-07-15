@@ -57,3 +57,9 @@ jobs:
 
       - name: Run tests
         run: npm test
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          POSTGRES_PRISMA_URL: ${{ secrets.POSTGRES_PRISMA_URL }}
+          POSTGRES_URL_NON_POOLING: ${{ secrets.POSTGRES_URL_NON_POOLING }}
+          ENGINE_ID: ${{ secrets.ENGINE_ID }}
+          API_GOOGLE_SEARCH_KEY: ${{ secrets.API_GOOGLE_SEARCH_KEY }}
