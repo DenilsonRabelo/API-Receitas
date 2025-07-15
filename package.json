@@ -66,21 +66,26 @@
       "json",
       "ts"
     ],
-    "rootDir": "test",
+    "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "**/*.(t|j)s"
+      "src/**/*.(t|j)s",
+      "!src/**/*.spec.ts",
+      "!src/**/*.interface.ts"
     ],
-    "coverageDirectory": "../coverage",
+    "coverageDirectory": "coverage",
     "coverageReporters": [
       "json",
       "lcov",
       "text",
       "clover"
     ],
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapping": {
+      "^src/(.*)$": "<rootDir>/src/$1"
+    }
   }
 }
