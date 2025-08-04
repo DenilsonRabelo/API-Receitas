@@ -1,7 +1,7 @@
 import { OllamaIaService } from './ollama-ia.service';
 import { Post, Controller, Query, UseGuards } from '@nestjs/common';
 import { ReceitaResponseDto } from './dto/receita-response.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('ollama-ia')
 export class OllamaIaController {
