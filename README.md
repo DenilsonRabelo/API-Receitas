@@ -1,75 +1,13 @@
-<div align="center">
-
-# 🍽️ A## ✨ Funcionalidades
-
-### 🤖 **Intelig---
-
-## 🌐 URL Base da API
-
-```bash
-🔗 https://api-receitas-pi.vercel.app
-```
-
----
-
-## 🔐 Autenticação e Segurança
-
-A API utiliza **JWT (JSON Web Tokens)** para autenticação segura. Para acessar funcionalidades protegidas:
-
-### 📋 **Pré-requisitos para Rotas Protegidas:**
-1. **Login** - Obtenha seu token JWT
-2. **Header Authorization** - Inclua `Authorization: Bearer <seu-token>`
-3. **Acesso** - Utilize funcionalidades de IA e criação de receitas
-
-### ⚡ **Benefícios da Autenticação:**
-- 🎯 Acesso às funcionalidades de IA premium
-- 📊 Criação e gerenciamento de receitas personalizadas
-- 🔒 Segurança aprimorada para suas operações
-
----icial Gastronômica**
-> *Revolucionando a criação de receitas com IA de última geração*
-
-- 🎲 **Receitas Aleatórias**: Gere receitas completamente únicas usando inteligência artificial avançada
-- 📂 **Receitas por Categoria**: Crie receitas específicas (doce, salgado, agridoce) adaptadas ao seu gosto
-- 🌍 **Culinária Mundial**: Explore sabores de diferentes culturas (italiana, japonesa, brasileira, francesa, etc.)
-- 🧪 **Ingredientes Inteligentes**: IA analisa combinações e sugere ingredientes complementares perfeitos
-- 🎯 **Personalização Total**: Receitas adaptadas às suas preferências e restrições alimentares
-
-### 📊 **Sistema de Navegação Avançado**
-- 📄 **Paginação Inteligente**: Navegue facilmente através de milhares de receitas
-- ⚡ **Performance Otimizada**: Carregamento rápido mesmo com grandes volumes de dados
-- 🔢 **Controle Flexível**: Defina quantos resultados deseja ver por página (até 100)
-
-### 🔍 **Busca Inteligente e Filtros**
-- 🔎 **Busca Semântica**: Encontre receitas por descrição, nome ou ingredientes
-- 🏷️ **Filtros Avançados**: Filtre por tipo de receita, categoria e muito mais
-- 📝 **Busca por Ingredientes**: Descubra receitas baseadas nos ingredientes que você tem em casa
-
-### 🛡️ **Segurança e Autenticação**
-- 🔐 **JWT Authentication**: Sistema seguro de autenticação baseado em tokens
-- 👤 **Gerenciamento de Usuários**: Criação e gerenciamento de contas de usuário
-- 🔒 **Rotas Protegidas**: Acesso controlado às funcionalidades premium de IA# *Inteligência Artificial aplicada à Gastronomia*
-
-<p>
-<img src="https://img.shields.io/github/issues/DenilsonRabelo/API-Receitas?style=for-the-badge&logo=github&color=FF6B6B"/>
-<img src="https://img.shields.io/github/forks/DenilsonRabelo/API-Receitas?style=for-the-badge&logo=github&color=4ECDC4"/>
-<img src="https://img.shields.io/github/stars/DenilsonRabelo/API-Receitas?style=for-the-badge&logo=github&color=45B7D1"/>
-<img src="https://img.shields.io/github/license/DenilsonRabelo/API-Receitas?style=for-the-badge&logo=mit&color=96CEB4"/>
+<h1 align="center"> API-Receitas </h1>
+<p align="center">
+<img src="https://img.shields.io/github/issues/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/forks/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/stars/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/github/license/DenilsonRabelo/API-Receitas"/>
+<img src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FDeni_dev1"/>
 </p>
 
-<p>
-<img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white"/>
-<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
-<img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white"/>
-<img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white"/>
-<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
-</p>
-
-> **Uma API revolucionária de receitas culinárias que combina banco de dados robusto com inteligência artificial avançada para criar experiências gastronômicas únicas e personalizadas.**
-
-*Utilizando tecnologia Ollama IA, nossa API não apenas fornece receitas tradicionais, mas também gera receitas inovadoras com base em categorias específicas, tipos de cozinha mundial e preferências personalizadas.*
-
-</div>
+<p align="center">Uma API moderna de receitas culinárias que combina um banco de dados robusto com inteligência artificial para criar experiências gastronômicas únicas. Utilizando tecnologia Ollama IA, a API não apenas fornece receitas tradicionais, mas também gera receitas personalizadas com base em categorias e tipos de cozinha específicos.</p>
 
 <h1 align="center">
   <img height="500" alt="comida" title="comida" src="https://media.tenor.com/images/3e4d211cd661a2d7125a6fa12d6cecc6/tenor.gif"/>
@@ -105,26 +43,17 @@ A API utiliza autenticação JWT para rotas protegidas. Para acessar as funciona
 1. Fazer login para obter o token JWT
 2. Incluir o token no header `Authorization: Bearer <token>`
 
-## �️ Endpoints da API
+## 📋 Rotas da API
 
-### 🏠 **Rota Principal**
-
-<details>
-<summary><code>GET /</code> - Mensagem de Boas-vindas</summary>
-
+### 🏠 Rota Principal
 ```http
 GET /
 ```
-**Resposta:** Mensagem de boas-vindas da API
-</details>
+Retorna mensagem de boas-vindas da API.
 
----
+### 👤 Autenticação
 
-### 👤 **Autenticação**
-
-<details>
-<summary><code>POST /login</code> - Fazer Login</summary>
-
+#### Login
 ```http
 POST /login
 Content-Type: application/json
@@ -135,22 +64,7 @@ Content-Type: application/json
 }
 ```
 
-**Resposta:**
-```json
-{
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": {
-    "id": 1,
-    "name": "Nome do Usuário",
-    "email": "usuario@email.com"
-  }
-}
-```
-</details>
-
-<details>
-<summary><code>POST /usuario</code> - Criar Usuário 🔒</summary>
-
+#### Criar Usuário (Requer Autenticação)
 ```http
 POST /usuario
 Authorization: Bearer <token>
@@ -162,194 +76,124 @@ Content-Type: application/json
   "password": "senha123"
 }
 ```
-</details>
 
----
+### 🍽️ Receitas
 
-### 🍽️ **Receitas**
-
-<details>
-<summary><code>GET /receitas/todas</code> - Listar Receitas (Paginado) 📄</summary>
-
+#### Listar Todas as Receitas (Paginado)
 ```http
 GET /receitas/todas?page=1&limit=10
 ```
-
 **Parâmetros de Query:**
 - `page` (opcional): Número da página (padrão: 1)
-- `limit` (opcional): Receitas por página (máximo: 100, padrão: 10)
+- `limit` (opcional): Quantidade de receitas por página (máximo: 100)
 
-**Exemplo:**
+**Exemplo de Uso:**
 ```javascript
-// Buscar 20 receitas da primeira página
 fetch("https://api-receitas-pi.vercel.app/receitas/todas?page=1&limit=20")
     .then(response => response.json())
-    .then(data => {
-        console.log('Receitas:', data.data);
-        console.log('Paginação:', data.meta);
-    });
+    .then(data => console.log(data))
 ```
 
-**Formato de Resposta:**
-```json
-{
-  "data": [...],
-  "meta": {
-    "page": 1,
-    "limit": 10,
-    "itemCount": 10,
-    "pageCount": 5,
-    "hasPreviousPage": false,
-    "hasNextPage": true
-  }
-}
-```
-</details>
-
-<details>
-<summary><code>GET /receitas/descricao</code> - Buscar por Descrição (Paginado) 🔍</summary>
-
+#### Buscar Receita por ID
 ```http
-GET /receitas/descricao?descricao=chocolate&page=1&limit=15
+GET /receitas/:id
 ```
-
-**Parâmetros de Query:**
-- `descricao` (obrigatório): Termo de busca na descrição/nome
-- `page` (opcional): Número da página
-- `limit` (opcional): Receitas por página
 
 **Exemplo:**
-```javascript
-// Buscar receitas com "chocolate" no nome
-const termo = encodeURIComponent("chocolate");
-fetch(`https://api-receitas-pi.vercel.app/receitas/descricao?descricao=${termo}&page=1&limit=5`)
-    .then(response => response.json())
-    .then(data => console.log(data));
-```
-</details>
-
-<details>
-<summary><code>GET /receitas/:id</code> - Buscar Receita por ID</summary>
-
 ```http
 GET /receitas/1
 ```
 
-**Exemplo de Resposta:**
-```json
-{
-  "id": 1,
-  "receita": "Bolo de Chocolate",
-  "ingredientes": "2 xícaras de farinha, 1 xícara de cacau...",
-  "modo_preparo": "Misture os ingredientes secos...",
-  "link_imagem": "https://exemplo.com/imagem.jpg",
-  "tipo": "doce",
-  "created_at": "2023-11-22T15:52:56.000Z"
-}
+#### Buscar Receitas por Tipo
+```http
+GET /receitas/tipo/:tipo
 ```
-</details>
 
-<details>
-<summary><code>GET /receitas/tipo/:tipo</code> - Buscar por Tipo</summary>
+**Tipos disponíveis:** `doce`, `salgado`, `agridoce`
 
+**Exemplo:**
 ```http
 GET /receitas/tipo/doce
 ```
 
-**Tipos disponíveis:**
-- `doce` 🍰
-- `salgado` 🥘  
-- `agridoce` 🍯
-</details>
+#### Buscar Receitas por Descrição (Paginado)
+```http
+GET /receitas/descricao?descricao=bolo&page=1&limit=10
+```
 
-<details>
-<summary><code>GET /receitas/ingredientes/:id</code> - Ingredientes da Receita</summary>
+**Parâmetros de Query:**
+- `descricao` (obrigatório): Termo de busca na descrição/nome da receita
+- `page` (opcional): Número da página
+- `limit` (opcional): Quantidade de receitas por página
 
+**Exemplo de Uso:**
+```javascript
+fetch("https://api-receitas-pi.vercel.app/receitas/descricao?descricao=chocolate&page=1&limit=5")
+    .then(response => response.json())
+    .then(data => console.log(data))
+```
+
+#### Buscar Ingredientes por ID da Receita
+```http
+GET /receitas/ingredientes/:id
+```
+
+**Exemplo:**
 ```http
 GET /receitas/ingredientes/1
 ```
-</details>
 
-<details>
-<summary><code>POST /receitas</code> - Criar Receita com IA 🔒🤖</summary>
-
+#### Criar Nova Receita com IA (Requer Autenticação)
 ```http
 POST /receitas
 Authorization: Bearer <token>
 ```
-**Descrição:** Gera automaticamente uma nova receita usando IA
-</details>
+Gera automaticamente uma nova receita usando IA.
 
-<details>
-<summary><code>DELETE /receitas/:id</code> - Deletar Receita 🔒</summary>
-
+#### Deletar Receita (Requer Autenticação)
 ```http
-DELETE /receitas/1
+DELETE /receitas/:id
 Authorization: Bearer <token>
 ```
-</details>
 
----
+### 🤖 Inteligência Artificial - Ollama IA
 
-### 🤖 **Inteligência Artificial - Ollama IA**
-
-<details>
-<summary><code>POST /ollama-ia/chat</code> - Receita Aleatória com IA 🔒🎲</summary>
-
+#### Gerar Receita Aleatória com IA (Requer Autenticação)
 ```http
 POST /ollama-ia/chat
 Authorization: Bearer <token>
 ```
 
-**Descrição:** Gera uma receita completamente nova e única usando inteligência artificial avançada.
+Gera uma receita completamente nova e única usando inteligência artificial.
 
-**Exemplo:**
-```javascript
-fetch("https://api-receitas-pi.vercel.app/ollama-ia/chat", {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer seu-token-jwt'
-    }
-})
-.then(response => response.json())
-.then(receita => console.log('Receita aleatória gerada:', receita));
-```
-</details>
-
-<details>
-<summary><code>POST /ollama-ia/chat/categoria</code> - Receita por Categoria 🔒🌍</summary>
-
+#### Gerar Receita por Categoria com IA (Requer Autenticação)
 ```http
 POST /ollama-ia/chat/categoria?categoria=doce&cozinha=italiana
 Authorization: Bearer <token>
 ```
 
 **Parâmetros de Query:**
-- `categoria` (obrigatório): Tipo da receita
-  - `doce` 🍰 - Sobremesas, bolos, tortas
-  - `salgado` 🥘 - Pratos principais, aperitivos
-  - `agridoce` 🍯 - Combinações únicas de sabores
-- `cozinha` (opcional): Tipo de culinária mundial
-  - `italiana` 🇮🇹, `japonesa` 🇯🇵, `brasileira` 🇧🇷, `francesa` 🇫🇷
-  - `chinesa` 🇨🇳, `mexicana` 🇲🇽, `indiana` 🇮🇳, `tailandesa` 🇹🇭
+- `categoria` (obrigatório): Tipo da receita (`doce`, `salgado`, `agridoce`)
+- `cozinha` (opcional): Tipo de cozinha (ex: `italiana`, `japonesa`, `brasileira`, `francesa`, etc.)
 
-**Exemplos:**
+**Exemplos de Uso:**
 ```javascript
-// Receita doce italiana
-fetch("https://api-receitas-pi.vercel.app/ollama-ia/chat/categoria?categoria=doce&cozinha=italiana", {
+// Receita doce genérica
+fetch("https://api-receitas-pi.vercel.app/ollama-ia/chat/categoria?categoria=doce", {
     method: 'POST',
-    headers: { 'Authorization': 'Bearer seu-token-jwt' }
-});
+    headers: {
+        'Authorization': 'Bearer seu-token-jwt'
+    }
+})
 
-// Receita salgada japonesa
+// Receita salgada da cozinha japonesa
 fetch("https://api-receitas-pi.vercel.app/ollama-ia/chat/categoria?categoria=salgado&cozinha=japonesa", {
     method: 'POST',
-    headers: { 'Authorization': 'Bearer seu-token-jwt' }
-});
+    headers: {
+        'Authorization': 'Bearer seu-token-jwt'
+    }
+})
 ```
-</details>
-
----
 
 ## 📄 Formato de Resposta das Receitas
 
@@ -400,11 +244,9 @@ fetch("https://api-receitas-pi.vercel.app/ollama-ia/chat/categoria?categoria=sal
 A API possui limitação de taxa para prevenir abuso:
 - **Limite:** 100 requisições por minuto por IP
 - **Janela de tempo:** 60 segundos
-
----
 ## 🌟 Exemplos de Uso Completos
 
-### 📊 Obter receitas com paginação
+### Obter receitas com paginação
 ```javascript
 async function obterReceitas(pagina = 1, limite = 10) {
     try {
@@ -421,7 +263,7 @@ async function obterReceitas(pagina = 1, limite = 10) {
 }
 ```
 
-### 🔍 Buscar receitas por descrição
+### Buscar receitas por descrição
 ```javascript
 async function buscarReceitasPorDescricao(termo, pagina = 1) {
     try {
@@ -437,7 +279,7 @@ async function buscarReceitasPorDescricao(termo, pagina = 1) {
 }
 ```
 
-### 🤖 Gerar receita com IA
+### Gerar receita com IA
 ```javascript
 async function gerarReceitaIA(categoria, cozinha, token) {
     try {
@@ -464,7 +306,7 @@ gerarReceitaIA('doce', 'francesa', 'seu-jwt-token')
     .then(receita => console.log('Nova receita gerada:', receita));
 ```
 
-### 🔐 Fazer login e obter token
+### Fazer login e obter token
 ```javascript
 async function fazerLogin(email, senha) {
     try {
@@ -526,8 +368,6 @@ async function fazerLogin(email, senha) {
 - **Containerização:** Docker (PostgreSQL)
 - **Rate Limiting:** @nestjs/throttler
 - **Validação:** class-validator
-
----
 
 ## 📚 Como Executar Localmente
 
