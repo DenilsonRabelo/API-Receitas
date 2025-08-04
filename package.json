@@ -5,7 +5,7 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "main": "src/main.ts",
+  "main": "dist/main.js",
   "scripts": {
     "build": "nest build",
     "vercel-build": "nest build",
