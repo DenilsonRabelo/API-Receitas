@@ -1,5 +1,4 @@
 import {
-  Body,
   Controller,
   Delete,
   Get,
@@ -41,6 +40,22 @@ export class receitaController {
     return this.receitaService.getIngredientesBasePorID(id);
   }
 
+  @Get('descricao')
+  FindReceitaDescricao(
+    @Query('descricao') descricao: string,
+    @Query('page') page: number,
+    @Query('limit') limit: number,
+  ) {
+    limit = limit > 100 ? 100 : limit;
+    page = page < 1 ? 1 : page;
+    if (!page || !limit) {
+      page = 1;
+      limit = 10;
+    }
+    console.log(`Buscando receitas com descrição: ${descricao}`);
+    return this.receitaService.getReceitaDescricao(descricao, { page, limit });
+  }
+
   @Get(':id')
   FindReceitaID(@Param('id') id: string) {
     return this.receitaService.getReceitaId(id);
@@ -48,8 +63,8 @@ export class receitaController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  async CreateReceita(@Body() data: ReceitasDto) {
-    return this.receitaService.postReceita(data);
+  async CreateReceita() {
+    return this.receitaService.postReceita();
   }
 
   @UseGuards(JwtAuthGuard)

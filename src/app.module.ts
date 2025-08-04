@@ -6,12 +6,13 @@ import { AppController } from './app.controller';
 import { usuarioModule } from './usuario/usuario.module';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { OllamaIaModule } from './ollama-ia/ollama-ia.module';
 
 @Module({
   imports: [receitaModule, AuthModule, usuarioModule, ThrottlerModule.forRoot({
     ttl : 60,
     limit : 100
-  })],
+  }), OllamaIaModule],
   controllers: [AppController],
   providers: [PrismaService, 
   {

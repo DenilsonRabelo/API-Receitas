@@ -7,10 +7,14 @@ import { PrismaService } from '../database/prisma.service';
 import { GoogleApis } from 'googleapis';
 import { IPaginationOptions, Pagination } from 'nestjs-typeorm-paginate';
 import { ReceitasDto } from './dto/create-receita.dto';
+import { OllamaIaService } from '../ollama-ia/ollama-ia.service';
 
 @Injectable()
 export class receitaService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private ollamaIaService: OllamaIaService,
+  ) {}
 
   getReceitasTipo(tipo) {
     if (tipo == 'doce' || tipo == 'salgado' || tipo == 'agridoce') {
@@ -32,6 +36,51 @@ export class receitaService {
     } else {
       throw new BadRequestException(
         `O tipo da receita deve ser doce, salgado ou agridoce`,
+      );
+    }
+  }
+
+  async getReceitaDescricao(
+    descricao: string,
+    options: IPaginationOptions,
+  ): Promise<Pagination<ReceitasDto>> {
+    try {
+      const { page, limit } = options;
+
+      const [receitas, total] = await Promise.all([
+        this.prisma.receita.findMany({
+          where: {
+            receita: {
+              contains: descricao,
+              mode: 'insensitive',
+            },
+          },
+          include: {
+            IngredientesBase: true,
+          },
+          skip: (Number(page) - 1) * Number(limit),
+          take: Number(limit),
+        }),
+        this.prisma.receita.count({
+          where: {
+            receita: {
+              contains: descricao,
+              mode: 'insensitive',
+            },
+          },
+        }),
+      ]);
+      const meta = {
+        itemCount: receitas.length,
+        totalItems: total,
+        itemsPerPage: Number(limit),
+        totalPages: Math.ceil(total / Number(limit)),
+        currentPage: Number(page),
+      };
+      return new Pagination<ReceitasDto>(receitas, meta);
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Erro ao buscar receitas por descrição: ${error.message}`,
       );
     }
   }
@@ -89,15 +138,18 @@ export class receitaService {
     }
   }
 
-  async postReceita(receitas) {
-    const { IngredientesBase, receita, ingredientes, modo_preparo, tipo } =
-      receitas;
-
-    if (!(tipo == 'doce' || tipo == 'salgado' || tipo == 'agridoce')) {
-      return { menssage: `${tipo} deve ser doce, salgado ou agridoce` };
-    }
-
+  async postReceita() {
     try {
+      // Gera uma receita usando o serviço Ollama IA
+      const receitaGerada = await this.ollamaIaService.createChat();
+
+      const { IngredientesBase, receita, ingredientes, modo_preparo, tipo } =
+        receitaGerada;
+
+      if (!(tipo == 'doce' || tipo == 'salgado' || tipo == 'agridoce')) {
+        return { menssage: `${tipo} deve ser doce, salgado ou agridoce` };
+      }
+
       const link_imagem = await this.getImagemReceita(receita);
       await this.prisma.receita.create({
         data: {
