@@ -1,32 +1,21 @@
 {
-  "version": 2,
-  "buildCommand": "nest build",
-  "installCommand": "npm install --force",
-  "framework": null,
-  "outputDirectory": "dist",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "public"
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/main.js",
+        "use": "@vercel/node"
       }
-    },
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "server.js",
-      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "src/main.js",
+        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+        "headers": {
+             "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Credentials": "true",
+             "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+         }
       }
-    }
-  ]
-}
+    ]
+  }
